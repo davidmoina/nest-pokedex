@@ -24,7 +24,15 @@ npm i -g @nestjs/cli
 docker-compose up -d
 ```
 
-5. Reconstruir la base de datos con el Seed
+5. Clonar el archivo **.env.example** y renombrar la copia a **.env** rellenando las variables de entorno respectivas según su caso.
+
+6. Ejecutar la aplicación en dev:
+
+```shell
+yarn start:dev
+```
+
+7. Reconstruir la base de datos con el Seed
 
 ```shell
 http://localhost:3000/api/v2/seed
@@ -34,3 +42,15 @@ http://localhost:3000/api/v2/seed
 
 - MongoDB
 - Nest
+
+# Build de producción
+
+1. crear el archivo **.env.prod**
+
+2. Rellenar las variables de entorno para producción
+
+3. Crear la nueva imagen
+
+```shell
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
